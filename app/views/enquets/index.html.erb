@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>アンケート一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @enquets.each do |enquet| %>
+      <tr>
+        <td><%= link_to '一覧', enquet %></td>
+        <td><%= link_to '編集', edit_enquet_path(enquet) %></td>
+        <td><%= link_to '削除', enquet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'アンケートを作る', new_enquet_path %>
