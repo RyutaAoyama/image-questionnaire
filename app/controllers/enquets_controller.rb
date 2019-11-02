@@ -12,12 +12,18 @@ class EnquetsController < ApplicationController
 
   # GET /enquets/1
   # GET /enquets/1.json
-  def show; end
+  def show
+    # p 'ffffff'
+    p @enquet
+    # p @enquet[:content]
+    # p 'ffffff'
+
+   end
 
   # GET /enquets/new
   def new
     @enquet = Enquet.new
-    p
+
   end
 
   # GET /enquets/1/edit
@@ -26,17 +32,17 @@ class EnquetsController < ApplicationController
   # POST /enquets
   # POST /enquets.json
   def create
-    p enquet_params
-    @enquet = Enquet.create(title: enquet_params[:title])
-    respond_to do |format|
-      if @enquet.save
-        format.html { redirect_to @enquet, notice: 'Enquet was successfully created.' }
-        format.json { render json: @enquet, status: :created, location: @enquet }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @enquet.errors, status: :unprocessable_entity }
-      end
+    if enquet_params[:content].blank?  # '', nil
+      @enquet = Enquet.new
+      return render action: 'new'
     end
+
+    # 画像の名前被りを防ぐ
+    enquet_params[:picture1].original_filename =  Time.now.to_s + enquet_params[:picture1].original_filename
+    # contentとpicture１を表示させるため
+    @enquet = Enquet.create(content: enquet_params[:content], picture1: enquet_params[:picture1])
+
+    redirect_to @enquet, notice: 'Enquet was successfully created.'
   end
 
   # PATCH/PUT /enquets/1

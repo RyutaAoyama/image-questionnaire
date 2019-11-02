@@ -2,7 +2,7 @@
 <%= form_for @enquet do |f| %>
     <div class="form-group">
         <%= f.label :content, '投稿内容' %>
-        <%= f.text_area :title, class: 'form-control', maxlength:"140" %>
+        <%= f.text_area :content, class: 'form-control', maxlength:"140" %>
         <small class="form-text text-muted">
             投稿内容を入力してください。
         </small>
@@ -11,7 +11,14 @@
     <small class="form-text text-muted">
         投稿する前に投稿内容を見直してください!
     </small>
+
+    <div class="field">
+
+       <%= f.label :picture %>
+       <%= f.file_field :picture1 %>
+     </div>
 <% end %>
+
 
 <%= render 'form', enquet: @enquet %>
 

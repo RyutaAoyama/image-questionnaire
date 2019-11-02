@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 <h1>アンケート結果</h1>
+<div class="w-50"style="padding: 10px; margin-bottom: 10px; border: 1px dotted #333333;">
+  <%= @enquet[:content] %>
+</div>
+<p>
+ <strong>Picture:</strong>
+ <%= image_tag(@enquet.picture1.url) if @enquet.picture1.present? %>
+</p>
 
 <%= link_to '編集', edit_enquet_path(@enquet) %> |
 <%= link_to '戻る', enquets_path %>
