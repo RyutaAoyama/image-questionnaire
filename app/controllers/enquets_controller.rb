@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class EnquetsController < ApplicationController
-  before_action :set_enquet, only: [:show, :edit, :update, :destroy]
+  before_action :set_enquet, only: %i[show edit update destroy]
   # validates :content, presence: true
 
   # GET /enquets
@@ -10,8 +12,7 @@ class EnquetsController < ApplicationController
 
   # GET /enquets/1
   # GET /enquets/1.json
-  def show
-  end
+  def show; end
 
   # GET /enquets/new
   def new
@@ -20,8 +21,7 @@ class EnquetsController < ApplicationController
   end
 
   # GET /enquets/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /enquets
   # POST /enquets.json
@@ -33,7 +33,7 @@ class EnquetsController < ApplicationController
         format.html { redirect_to @enquet, notice: 'Enquet was successfully created.' }
         format.json { render json: @enquet, status: :created, location: @enquet }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @enquet.errors, status: :unprocessable_entity }
       end
     end
@@ -64,13 +64,14 @@ class EnquetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_enquet
-      @enquet = Enquet.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def enquet_params
-      params.fetch(:enquet, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_enquet
+    @enquet = Enquet.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def enquet_params
+    params.fetch(:enquet, {})
+  end
 end

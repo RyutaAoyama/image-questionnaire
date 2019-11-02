@@ -1,1 +1,3 @@
-json.partial! "enquets/enquet", enquet: @enquet
+# frozen_string_literal: true
+
+json.partial! 'enquets/enquet', enquet: @enquet
