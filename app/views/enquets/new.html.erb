@@ -1,0 +1,18 @@
+<h1>アンケートを作る</h1>
+<%= form_for @enquet do |f| %>
+    <div class="form-group">
+        <%= f.label :content, '投稿内容' %>
+        <%= f.text_area :title, class: 'form-control', maxlength:"140" %>
+        <small class="form-text text-muted">
+            投稿内容を入力してください。
+        </small>
+    </div>
+    <%= f.submit '投稿する', class: 'btn btn-info btn-block' %>
+    <small class="form-text text-muted">
+        投稿する前に投稿内容を見直してください!
+    </small>
+<% end %>
+
+<%= render 'form', enquet: @enquet %>
+
+<%= link_to 'Back', enquets_path %>
