@@ -1,12 +1,39 @@
 <p id="notice"><%= notice %></p>
-<h1>アンケート結果</h1>
-<div class="w-50"style="padding: 10px; margin-bottom: 10px; border: 1px dotted #333333;">
-  <%= @enquet[:content] %>
-</div>
-<p>
- <strong>Picture:</strong>
+<div class="text-center">
+  <h1>アンケート内容</h1>
+  <div class="m">
+    <p>内容詳細</p>
+    <%= @enquet[:created_at].strftime('%Y/%m/%d %H:%M') %>
+    <%= @enquet[:content] %>
+  </div>
+  <p>
+ <!-- <strong>Picture:</strong> -->
  <%= image_tag(@enquet.picture1.url) if @enquet.picture1.present? %>
-</p>
+  </p>
+</div>
 
-<%= link_to '編集', edit_enquet_path(@enquet) %> |
-<%= link_to '戻る', enquets_path %>
+<div class="container">
+  <div class="row col-sm-6 offset-sm-3">
+    <%= submit_tag 'Twitterに投稿する', class: 'btn btn-info btn-block' %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class=" col-sm-6 offset-sm-3">
+      <%= link_to '編集', edit_enquet_path(@enquet),  class: 'btn btn-default edit-btm' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class=" col-sm-6 offset-sm-3">
+      <%= link_to '一覧', enquets_path,  class: 'btn btn-default submit-btm' %>
+      <%# <%= link_to '編集', edit_enquet_path(@enquet),  class: 'btn btn-default edit-btm' %> %>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class=" col-sm-6 offset-sm-3">
+      <%= link_to '削除', @enquet, method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-default'  %>
+    </div>
+  </div>
+</div>

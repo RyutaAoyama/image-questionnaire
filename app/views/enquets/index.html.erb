@@ -1,25 +1,30 @@
 <p id="notice"><%= notice %></p>
+<div class="text-center">
+  <h1>アンケート一覧</h1>
 
-<h1>アンケート一覧</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @enquets.each do |enquet| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to '一覧', enquet %></td>
-        <td><%= link_to '編集', edit_enquet_path(enquet) %></td>
-        <td><%= link_to '削除', enquet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @enquets.each do |enquet| %>
+        <tr>
+          <td>投稿内容 <br>
+            　<%= enquet[:content] %></td>
+          <td><%=  image_tag(enquet.picture1.url, size: '240x240') %></td>
+          <td><%= link_to '詳細', enquet %></td>
+          <td><%= link_to '編集', edit_enquet_path(enquet) %></td>
+          <td><%= link_to '削除', enquet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'アンケートを作る', new_enquet_path %>
+  <br>
+
+  <%= link_to 'アンケートを作る', new_enquet_path %>
+  <%= link_to 'アンケートを一覧', enquets_path %>
+</div>

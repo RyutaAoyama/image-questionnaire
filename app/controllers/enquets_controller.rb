@@ -8,6 +8,7 @@ class EnquetsController < ApplicationController
   # GET /enquets.json
   def index
     @enquets = Enquet.all
+    render action: 'index'
   end
 
   # GET /enquets/1
@@ -36,6 +37,7 @@ class EnquetsController < ApplicationController
       @enquet = Enquet.new
       return render action: 'new'
     end
+
 
     # 画像の名前被りを防ぐ
     enquet_params[:picture1].original_filename =  Time.now.to_s + enquet_params[:picture1].original_filename
