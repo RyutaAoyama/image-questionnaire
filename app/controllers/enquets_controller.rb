@@ -7,8 +7,9 @@ class EnquetsController < ApplicationController
   # GET /enquets
   # GET /enquets.json
   def index
-    @enquets = Enquet.all
-    render action: 'index'
+    p @enquets = Enquet.all
+
+    # render action: 'index'
   end
 
   # GET /enquets/1
@@ -18,8 +19,7 @@ class EnquetsController < ApplicationController
     p @enquet
     # p @enquet[:content]
     # p 'ffffff'
-
-   end
+  end
 
   # GET /enquets/new
   def new

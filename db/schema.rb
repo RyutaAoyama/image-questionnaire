@@ -16,8 +16,6 @@ ActiveRecord::Schema.define(version: 2019_10_25_140751) do
     t.string "content", null: false
     t.string "picture1", null: false
     t.string "picture2", null: false
-    t.string "picture3", null: false
-    t.string "picture4", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
