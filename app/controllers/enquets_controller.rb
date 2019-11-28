@@ -2,6 +2,8 @@
 
 class EnquetsController < ApplicationController
   before_action :set_enquet, only: %i[show edit update destroy]
+  before_action :authenticate_user
+
   # validates :content, presence: true
 
   # GET /enquets
