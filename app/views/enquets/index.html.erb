@@ -1,25 +1,90 @@
 <p id="notice"><%= notice %></p>
+<div class="text-center">
+  <h1>アンケート一覧</h1>
 
-<h1>アンケート一覧</h1>
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <% @enquets.each do |enquet| %>
+          <%# <% if @enquet != nil%> %>
+          <div class="card">
+            <div class="index">
+              <div class="index-content">
+                <%= enquet[:content] %>
+                　
+                <%# <% @enquet %> %>
+                <%# <%= enquet.first.content %> %>
+              </div>
+              <div class="index-image">
+                <%= image_tag(enquet.picture1.url, size: '80x80') %>
+                <%= image_tag(enquet.picture2.url, size: '80x80') %>
+              </div>
+            </div>
+          </div>
+          <%# <% end %> %>
+          <%# <%= link_to '詳細', "/enquets/#{enquet.id}", method: :get %> %>
+          <%= link_to '詳細をみる', enquet_path(enquet) %>
+        <% end %>
+        <%# <a href="/enquets/<%= enquets_path(:id) %>">詳細</a> %>
+      </div>
+    </div>
+  </div>
+  </body>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <% p @enquets.first %>
+  <% p @enquet %>
 
-  <tbody>
-    <% @enquets.each do |enquet| %>
-      <tr>
-        <td><%= link_to '一覧', enquet %></td>
-        <td><%= link_to '編集', edit_enquet_path(enquet) %></td>
-        <td><%= link_to '削除', enquet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+  <br>
 
-<%= link_to 'アンケートを作る', new_enquet_path %>
+  <%= link_to 'アンケートを作る', new_enquet_path %>
+  <%= link_to 'アンケートを一覧', enquets_path %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      .col-12 .colsdfadsfdsfdsafsdol-12 .colsdf
+    </div>
+    <div class="offset-md-6 col-md-6">
+      .col-12 .colsdfadsfdsfdsafsdol-12 .colsdf
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 col-md-3 col-lg-4">
+      .col-12 .colsdfadsfdsfdsafsdol-12 .colsdf
+    </div>
+    <div class="col-6 col-md-3 col-lg-4">
+      .col-12 .colsdfadsfdsfdsafsdol-12 .colsdf
+    </div>
+    <div class="col-6 col-md-3 col-lg-4">
+      .col-12 .colsdfadsfdsfdsafsdol-12 .colsdf
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 offset-3">
+      One of three columns
+    </div>
+    <div class="col-sm-3">
+      One of three columns
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6">1</div>
+    <div class="col-12 col-md-6">2</div>
+    <div class="col-12 col-md-6">3</div>
+    <div class="col-12 col-md-6">4</div>
+  </div>
+</div>

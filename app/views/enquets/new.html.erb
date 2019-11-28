@@ -1,18 +1,31 @@
-<h1>アンケートを作る</h1>
-<%= form_for @enquet do |f| %>
+<div class="text-center">
+  <h1>アンケートを作る</h1>
+  <%= form_for @enquet do |f| %>
     <div class="form-group">
-        <%= f.label :content, '投稿内容' %>
-        <%= f.text_area :title, class: 'form-control', maxlength:"140" %>
-        <small class="form-text text-muted">
-            投稿内容を入力してください。
-        </small>
+      <%= f.label :content, '投稿内容' %>
+      <%= f.text_area :content,size: "20x10", class: 'form-control', maxlength: "140" %>
+      <small class="form-text text-muted">
+        投稿内容を入力してください。
+      </small>
     </div>
+
     <%= f.submit '投稿する', class: 'btn btn-info btn-block' %>
     <small class="form-text text-muted">
-        投稿する前に投稿内容を見直してください!
+      投稿する前に投稿内容を見直してください!
     </small>
-<% end %>
 
-<%= render 'form', enquet: @enquet %>
+    <div class="field">
 
-<%= link_to 'Back', enquets_path %>
+      <%= f.label :picture %>
+      写真を追加する(比較したい写真を２〜４枚追加してください)<br>
+      <%= f.file_field :picture1 %>
+    </div>
+  <% end %>
+
+
+  <%= render 'form', enquet: @enquet %>
+
+  <%= link_to 'Back', enquets_path %>
+  
+
+</div>
