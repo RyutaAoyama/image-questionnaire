@@ -14,6 +14,8 @@
       <%= image_tag(@enquet.picture1.url) if @enquet.picture1.present? %>
       <%= image_tag(@enquet.picture2.url) if @enquet.picture2.present? %>
     </p>
+    <%= link_to("投票する", "/votes/#{@enquet.id}/create", {method: "post"}) %>
+    <%= @votes_count %>
     </div>
 </div>
 

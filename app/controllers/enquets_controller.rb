@@ -19,6 +19,8 @@ class EnquetsController < ApplicationController
     p @enquet
     # p @enquet[:content]
     # p 'ffffff'
+    @votes_count = Vote.where(enquet_id: @enquet.id).count
+
   end
 
   # GET /enquets/new
@@ -30,8 +32,8 @@ class EnquetsController < ApplicationController
   # GET /enquets/1/edit
   def edit; end
 
-  # POST /enquets
-  # POST /enquets.json
+  # enquet /enquets
+  # enquet /enquets.json
   def create
     if enquet_params[:content].blank?  # '', nil
       @enquet = Enquet.new
