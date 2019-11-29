@@ -1,3 +1,40 @@
 // Place all the styles related to the enquets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.tweet-btn {
+  width:100%;
+  border-radius: 20px;
+  // margin: 0 auto;
+}
+
+.edit-btm {
+    border-color: #707070;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.submit-btm {
+  background-color: #707070;
+  border-radius: 20px;
+  color: #FFF;
+  font-weight: bold;
+  width: 100%;
+}
+
+.delete-btn {
+  width: 100%;
+}
+
+.index {
+  border: 1px solid #2E2F30;
+  margin-bottom: 10px;
+}
+
+.index-content{
+  border-bottom: 1px;
+  padding: 10px;
+}
+
+.index-image {
+
+}

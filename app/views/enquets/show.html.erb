@@ -1,5 +1,47 @@
 <p id="notice"><%= notice %></p>
-<h1>アンケート結果</h1>
+<div class="text-center">
+  <h1>アンケート内容</h1>
 
-<%= link_to '編集', edit_enquet_path(@enquet) %> |
-<%= link_to '戻る', enquets_path %>
+  <div class="m">
+    <p>アンケート内容</p>
+    <%= @enquet[:created_at].strftime('%Y/%m/%d %H:%M') %><br>
+  </div>
+    <div style="padding: 30px; margin: 10px 35px 30px; border: 1px solid #333333;">
+    <!-- <div class="p-30, mt-10, my-70, mb-30, border-1, solid-gray"> -->
+      <%= @enquet[:content] %>
+    <p>
+      <!-- <strong>Picture:</strong> -->
+      <%= image_tag(@enquet.picture1.url) if @enquet.picture1.present? %>
+      <%= image_tag(@enquet.picture2.url) if @enquet.picture2.present? %>
+    </p>
+    </div>
+</div>
+
+
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-sm-6 offset-sm-3">
+      <%= submit_tag 'Twitterに投稿する', class: 'btn btn-info btn-block tweet-btn' %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mb-3">
+    <div class=" col-sm-6 offset-sm-3">
+      <%= link_to 'アンケート編集', edit_enquet_path(@enquet), class: 'btn btn-default edit-btm' %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class=" col-sm-6 offset-sm-3 color-white">
+      <%= link_to 'アンケート一覧', enquets_path, class: 'btn btn-default submit-btm' %>
+      <%# <%= link_to '編集', edit_enquet_path(@enquet),  class: 'btn btn-default edit-btm' %>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class=" col-sm-6 offset-sm-3 text-center">
+      <%= link_to '削除', @enquet, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default　delete-btn' %>
+    </div>
+  </div>
+</div>
