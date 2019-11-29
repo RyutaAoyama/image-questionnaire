@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post "votes/:enquet_id/create" => "votes#create"
 
   post "users/:id/update" => "users#update"
   get "users/:id/edit" => "users#edit"
